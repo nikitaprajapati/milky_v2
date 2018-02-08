@@ -1,11 +1,11 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.milky" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<?xml version='1.1' encoding='utf-8'?>
+<widget id="com.phonegap.milky" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Milky</name>
     <description>
-        Milky App Powered By Miss Milky
+        This is an product ordering app related to subscribed user of a milk processing unit for ordering milk products. This app is only limited to the distributors associated with the milk processing unit
     </description>
-    <author email="nikita.prajapati@staroneweb.co.in" href="http://milkyplus.co.in">
-        Milky
+    <author email="info@staroneweb.co.in" href="http://milkyplus.co.in">
+        Star One Web
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
