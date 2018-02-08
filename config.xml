@@ -2,10 +2,10 @@
 <widget id="com.phonegap.milky" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Milky</name>
     <description>
-        Milky App
+        Milky App Powered By Miss Milky
     </description>
     <author email="nikita.prajapati@staroneweb.co.in" href="http://milkyplus.co.in">
-        Milky App Powered By Miss Milky
+        Milky
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
@@ -36,8 +36,7 @@
         <preference name="SplashScreenDelay" value="7000" /><!-- added by Nikita -->
         <preference name="ShowSplashScreenSpinner" value="false" /><!-- added by Nikita -->
         <splash src="splash.png" /><!-- added by Nikita -->
-        <preference name="ShowSplashScreenSpinner" value="false" /><!-- added by Nikita -->
-    </platform>
+     </platform>
     
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -49,4 +48,6 @@
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
+	<preference name='phonegap-version' value='cli-6.5.0' />
+	<preference name='pgb-builder-version' value='2' />
 </widget>
