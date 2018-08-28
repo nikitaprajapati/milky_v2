@@ -545,8 +545,8 @@ myApp.onPageInit('view_order', function (page) {
              dataType:'json',
              success: function(myres) {
                 if(myres[0]['btn_acc']==='A'){
-                $('.edit_order_link').html('<a href="edit_order.html?order_code='+order_code+'" class="link icon-only"><i class="fa fa-pencil-square-o"></i></a>');
-                $('.delete_order_link').html('<a onclick="delete_order('+"'"+order_code+"'"+')" class="link bg-red color-white btn-small font-400 pull-right "><i class="glyphicon glyphicon-trash"></i> DELETE</a>');
+                //$('.edit_order_link').html('<a href="edit_order.html?order_code='+order_code+'" class="link icon-only"><i class="fa fa-pencil-square-o"></i></a>');
+                //$('.delete_order_link').html('<a onclick="delete_order('+"'"+order_code+"'"+')" class="link bg-red color-white btn-small font-400 pull-right "><i class="glyphicon glyphicon-trash"></i> DELETE</a>');
                 }
   
                   output+='<div class="data-table data-table-init card">'
@@ -621,6 +621,8 @@ function add_order(){
     if($(".total_crates").html()==0 || $(".total_crates").html()==""){
         myApp.alert('Please enter quantity.','Milky Plus');
     }else{
+myApp.confirm('Are you sure you want to place this order? After submit order you can not change or delete this order.', 'Milky Plus',
+    function () {
     myApp.showPreloader();
           $$.ajax({
              type: 'POST',
@@ -644,6 +646,10 @@ function add_order(){
               }
             });
      myApp.hidePreloader();
+	},
+     function () {
+                  return false;
+               });
     }
 }
 
@@ -836,7 +842,7 @@ myApp.onPageInit('view_order_history', function (page) {
 
     //$('.customer_code').val(si_username);
     $('.order_code_view').html(order_code);
-    $('.edit_order_link').html('<a href="edit_order.html?order_code='+order_code+'" class="link icon-only"><i class="fa fa-pencil-square-o"></i></a>');
+    //$('.edit_order_link').html('<a href="edit_order.html?order_code='+order_code+'" class="link icon-only"><i class="fa fa-pencil-square-o"></i></a>');
     myApp.showPreloader();
     $$.ajax({
              //type: 'POST',
