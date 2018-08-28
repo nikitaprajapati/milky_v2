@@ -621,7 +621,7 @@ function add_order(){
     if($(".total_crates").html()==0 || $(".total_crates").html()==""){
         myApp.alert('Please enter quantity.','Milky Plus');
     }else{
-myApp.confirm('Are you sure you want to place this order? After submit order you can not change or delete this order.', 'Milky Plus',
+    myApp.confirm('Are you sure you want to place this order? After submitting this order you can not change or delete this order.', 'Milky Plus',
     function () {
     myApp.showPreloader();
           $$.ajax({
