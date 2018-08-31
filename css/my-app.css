@@ -97,21 +97,22 @@
 /*----------------Your subscription is inactiv css-------------------*/
 
 .friz_cover{
-
     width:100%;
-
     height:100%;
-
     background: rgba(0, 0, 0, 0.8);
-
     z-index: 9999;
-
     position:  fixed;
-
     text-align: center;
-
 }
 
+.friz_cover_exist{
+    width:100%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    position:  fixed;
+    text-align: center;
+}
 .cover-data{
    height: 100%;
     margin-top: 40%;
@@ -129,3 +130,4 @@
 
 
 .notifications { top:0 !important; bottom: unset !important; }
+.text-upper{ text-transform: uppercase;}
