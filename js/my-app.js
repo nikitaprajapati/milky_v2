@@ -331,7 +331,7 @@ function change_password(){
 //============== PLACE ORDER ========
 myApp.onPageInit('place_order', function (page) {
     checkConnection();
-
+    chk_order_exist_fun();
     var si_username = window.localStorage.getItem("login_session");
     var base_url='http://milkyplus.co.in/app/';
     var output='';
@@ -420,7 +420,7 @@ myApp.onPageInit('edit_order', function (page) {
     $('.order_code_edit').html(order_code);
     $(".total_crates").html("");
     $(".total_order").html("");
-    $('.view_order_link').html('<a href="view_order.html?order_code='+order_code+'" class="link icon-only bacl"><i class="icon icon-back"></i></a>');
+    $('.view_order_link').html('<a href="view_order.html?order_code='+order_code+'" class="link icon-only back"><i class="icon icon-back"></i></a>');
     $('.customer_code').val(si_username);
     $$.ajax({
              //type: 'POST',
@@ -545,7 +545,7 @@ myApp.onPageInit('view_order', function (page) {
              dataType:'json',
              success: function(myres) {
                 if(myres[0]['btn_acc']==='A'){
-                //$('.edit_order_link').html('<a href="edit_order.html?order_code='+order_code+'" class="link icon-only"><i class="fa fa-pencil-square-o"></i></a>');
+                $('.edit_order_link').html('<a href="edit_order.html?order_code='+order_code+'" class="link icon-only"><i class="fa fa-pencil-square-o"></i></a>');
                 //$('.delete_order_link').html('<a onclick="delete_order('+"'"+order_code+"'"+')" class="link bg-red color-white btn-small font-400 pull-right "><i class="glyphicon glyphicon-trash"></i> DELETE</a>');
                 }
   
@@ -621,7 +621,7 @@ function add_order(){
     if($(".total_crates").html()==0 || $(".total_crates").html()==""){
         myApp.alert('Please enter quantity.','Milky Plus');
     }else{
-    myApp.confirm('Are you sure you want to place this order? After submitting this order you can not change or delete this order.', 'Milky Plus',
+    myApp.confirm('Are you sure you want to place this order? After submitting this order you can not delete this order.', 'Milky Plus',
     function () {
     myApp.showPreloader();
           $$.ajax({
@@ -842,7 +842,7 @@ myApp.onPageInit('view_order_history', function (page) {
 
     //$('.customer_code').val(si_username);
     $('.order_code_view').html(order_code);
-    //$('.edit_order_link').html('<a href="edit_order.html?order_code='+order_code+'" class="link icon-only"><i class="fa fa-pencil-square-o"></i></a>');
+    $('.edit_order_link').html('<a href="edit_order.html?order_code='+order_code+'" class="link icon-only"><i class="fa fa-pencil-square-o"></i></a>');
     myApp.showPreloader();
     $$.ajax({
              //type: 'POST',
@@ -908,9 +908,16 @@ function friz_fun(){
     var si_username = window.localStorage.getItem("login_session");
     var base_url='http://milkyplus.co.in/app/';
     $.ajax({url: base_url+'chk_friz_time/'+si_username, success: function(result){
-        //alert(result);
         if(result=="F"){
         $('.friz_cover').show();
+	$('.friz_cover_exist').hide();
+        $('.friz_box input').attr('readonly','readonly');
+        $('.friz_msg').html('<span class="font-600 color-white">ORDER TIME IS OVER</span>');
+        $('.friz_msg').show();
+        $('.delete_order_link').hide();
+        $('.edit_order_link').hide();
+        }else if(result=="FE"){
+        $('.friz_cover').hide();
         $('.friz_box input').attr('readonly','readonly');
         $('.friz_msg').html('<span class="font-600 color-white">ORDER TIME IS OVER</span>');
         $('.friz_msg').show();
@@ -939,5 +946,15 @@ function status_chk_fun(){
         }
     }});
     
+}
+function chk_order_exist_fun(){
+    var si_username = window.localStorage.getItem("login_session");
+    var base_url='http://starprojects.in/dairy/app/';
+    $.ajax({url: base_url+'chk_order_exist/'+si_username, success: function(result){
+       // alert(result); 
+       if(result >= 1){ 
+         $('.friz_cover_exist').show();
+       }  
+    }});
 }
 //-----------------------------------------
