@@ -131,3 +131,4 @@
 
 .notifications { top:0 !important; bottom: unset !important; }
 .text-upper{ text-transform: uppercase;}
+.navbar-inner .title { text-transform: uppercase; }
