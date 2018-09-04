@@ -951,8 +951,9 @@ function chk_order_exist_fun(){
     var si_username = window.localStorage.getItem("login_session");
     var base_url='http://starprojects.in/dairy/app/';
     $.ajax({url: base_url+'chk_order_exist/'+si_username, success: function(result){
-       // alert(result); 
+        alert(result); 
        if(result >= 1){ 
+	        alert('Order Exist'); 
          $('.friz_cover_exist').show();
        }  
     }});
