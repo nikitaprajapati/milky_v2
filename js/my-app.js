@@ -949,11 +949,9 @@ function status_chk_fun(){
 }
 function chk_order_exist_fun(){
     var si_username = window.localStorage.getItem("login_session");
-    var base_url='http://starprojects.in/dairy/app/';
+    var base_url='http://milkyplus.co.in/app/';
     $.ajax({url: base_url+'chk_order_exist/'+si_username, success: function(result){
-        alert(result); 
        if(result >= 1){ 
-	        alert('Order Exist'); 
          $('.friz_cover_exist').show();
        }  
     }});
