@@ -41,7 +41,7 @@ function onBackKeyDown() {
        var page=myApp.getCurrentView().activePage; myApp.hidePreloader(); 
        //alert(page.name);
       if(page.name=="login-screen"){
-           myApp.confirm('Do you want to Exit !', function () {
+           myApp.confirm('Do you want to Exit?', function () {
                   navigator.app.clearHistory(); navigator.app.exitApp();
             });
        } 
@@ -54,7 +54,6 @@ function onBackKeyDown() {
 //-------- CHECK INTERNET CONNECTION ------------
 function checkConnection() {
     var networkState = navigator.connection.type;
-    //alert(networkState);
     if(networkState=='none')
     {  
         mainView.loadPage("internet.html");
@@ -65,7 +64,6 @@ function checkConnection() {
 function checkStorage()
 { 
    checkConnection();
-   //alert("in sabzi func");
     var value = window.localStorage.getItem("login_session");
     var version=1;
     var base_url='http://milkyplus.co.in/app/';
@@ -86,14 +84,7 @@ function checkStorage()
 
 // Callbacks to run specific code for specific pages, for example for About page:
 myApp.onPageInit('about', function (page) {
-    // run createContentPage func after link was clicked
-   /* $$('.create-page').on('click', function () {
-        createContentPage();
-    });*/
- //alert('About page loaging...!!!');
-
 var cnt =page.query.count;
-
 var txt='';
 for (var i=1; i<cnt; i++) {
     txt+="<br/>No "+i;
